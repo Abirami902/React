@@ -1,0 +1,106 @@
+//APP.js
+
+import logo from './logo.svg';
+import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from './Layout';
+import About from './About';
+import Home from './Home';
+import Blogs from './Blogs';
+import Contact from '../src/Contact';
+
+
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="blogs" element={<Blogs />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
+
+
+//Home.jsx
+
+import React from 'react'
+
+ function Home() {
+  return (
+    <div>
+      HOME PAGE
+    </div>
+  )
+}
+export default Home
+
+//About
+import React from 'react'
+
+ function About() {
+  return (
+    <div>
+      ABOUT PAGE
+    </div>
+  )
+}
+export default About
+
+//Blogs
+
+  import React from 'react'
+
+ function Blogs() {
+  return (
+    <div>
+      Blog Articles
+    </div>
+  )
+}
+export default Blogs
+
+//Contact.jsx
+
+import React from 'react'
+
+ function Contact() {
+  return (
+    <div>
+      CONTACT PAGE
+    </div>
+  )
+}
+export default Contact
+
+//Layout
+import React from 'react'
+import {Link, Outlet } from 'react-router-dom'
+
+function Layout() {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <Link to='/about'><li>About</li></Link> 
+          <Link to="/blogs"><li>Blogs</li></Link>
+          <Link to='/contact'><li>Contact</li></Link> 
+        </ul>
+      </nav>
+      <Outlet/>
+    </div>
+  )
+}
+
+export default Layout
+
+
+
