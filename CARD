@@ -1,0 +1,89 @@
+// App.js
+
+import logo from './logo.svg';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from '../src/Card';
+import './card.css';
+
+export default function App() {
+const data= [
+  {
+    image: "adam.jpeg",
+    name:"Adam Jonson",
+    position:"developer" 
+   
+  },
+
+  {
+    image: "linda.jpg",
+    name:"Linda Larson",
+    position:"developer" 
+   
+  },
+  {
+
+    image: "marry.jpeg",
+    name:"Marry Hudson",
+    position:"developer" 
+  },
+  {
+    image: "nina.jpeg",
+    name:"Nina Hudson",
+    position:"developer" 
+  },
+  {
+    image: "nicole.jpeg",
+    name:"Nicole Scavo",
+    position:"developer"
+
+  },
+  {
+    image: "margo.jpeg",
+    name:"Margo Larson",
+    position:"developer"
+  
+  }
+];
+
+return (
+
+  <div className="row">
+    <Card data={data}/> 
+  </div>
+);
+}
+
+//Card.jsx
+
+import React from "react";
+
+export default function Card(props) {
+    return (
+
+<>
+
+    {props.data.map((item, index) => (
+        <div className="col-lg-4 mb-4" key={index}>
+          <div className="card">
+            <img src={item.image} className="j1" alt="Card Image" />
+            <div className="card-body">
+              <h5 className="card-title ms-5">{item.name}</h5>
+              <p className="card-text ms-5">{item.position}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+
+</>
+    );
+}
+
+//Card.css
+.j1{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    margin-left: 150px;
+    margin-top: 10px;
+}
